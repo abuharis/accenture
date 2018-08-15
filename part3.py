@@ -1,5 +1,12 @@
 from flask import Flask
 from flask_restful import reqparse, abort, Api, Resource
+from  subprocess import Popen, PIPE
+
+class Ping(Resource):
+    def get(self, ip):
+        proc = Popen(['ping', ip, '-n', '1'], shell=True, stdout=PIPE, stderr=PIPE)
+        response = proc.stdout.read()
+        return response
 
 
 class TodoList(Resource):
@@ -57,7 +64,7 @@ parser.add_argument('task')
 
 
 api.add_resource(TodoList, '/todos')
-
+api.add_resource(Ping, '/ping/<string:ip>')
 
 if __name__ == '__main__' :
     app.run(debug=True, host='0.0.0.0',port=8080)
