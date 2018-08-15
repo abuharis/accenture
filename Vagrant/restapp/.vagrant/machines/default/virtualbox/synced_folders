@@ -1,0 +1,1 @@
+{"virtualbox":{"/srv/repos":{"guestpath":"/srv/repos","hostpath":"C:/Users/Student/repos","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/Student/Downloads/Laptop/Vagrant/restapp","disabled":false,"__vagrantfile":true}}}
